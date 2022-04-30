@@ -3,8 +3,10 @@
 Created on Tue Jun 16 14:51:43 2020
 
 @author: pater
-"""
 
+Dataset URL: https://www.kaggle.com/datasets/usaf/vietnam-war-bombing-operations/code
+
+"""
 
 # Importing the libraries
 
@@ -15,7 +17,7 @@ import math
 
 # Importing the dataset
 
-dataset = pd.read_csv('Vietnam_Bombing_Operations_STRIKE.csv')
+dataset = pd.read_csv('Vietnam_Bombing_Operations.csv')
 
 import folium
 from folium import Choropleth, Circle, Marker
