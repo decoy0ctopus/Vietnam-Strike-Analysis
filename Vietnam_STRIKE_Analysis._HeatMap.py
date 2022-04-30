@@ -19,6 +19,12 @@ import math
 
 dataset = pd.read_csv('Vietnam_Bombing_Operations.csv')
 
+#Filter dataset to only include kinetic operations.
+
+dataset = dataset.loc[dataset['MFUNC_DESC_CLASS'] == 'KINETIC']
+
+dataset.head()
+
 import folium
 from folium import Choropleth, Circle, Marker
 from folium.plugins import HeatMap, MarkerCluster, HeatMapWithTime
@@ -38,6 +44,13 @@ for idx, row in dataset.iterrows():
 
 HeatMap(data=tgtloc, radius=10).add_to(m_1)
 
+#Function to embed map into html file
+
+def embed_map(m, file_name):
+    from IPython.display import IFrame
+    m.save(file_name)
+    return IFrame(file_name, width='100%', height='500px')
 
 # Display the map
-m_1.save('index.html')
+embed_map(m_1, 'm_1.html')
+print('map created')
